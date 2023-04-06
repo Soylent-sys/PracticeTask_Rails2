@@ -1,0 +1,248 @@
+/* default */
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+.h2-en {
+  font-size: 40px;
+}
+
+label {
+  color: #777;
+  font-weight: bold;
+}
+
+input {
+  padding: 0 10px;
+}
+
+input::placeholder {
+  color: #ccc
+}
+
+/* layout */
+
+.header-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.header-container h1 {
+  color: #6be5f0;
+}
+
+.nav-list ul {
+  display: flex;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.login_button {
+  color: #6be5f0;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.sign_up_button {
+  background-color: #6be5f0;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.footer-container {
+  background-color: #fff;
+  font-size: 20px;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-container p {
+  color: #6be5f0;
+}
+
+
+/* shared */
+
+.flash-container {
+  background-color: #fdf745;
+  border-radius: 5px;
+  color: #888;
+  font-weight: bold;
+  padding: 15px 25px;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+
+
+/* home */
+
+.top-wrapper {
+  background-image: image-url('top-image.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+  padding: 50px 80px;
+  position: relative;
+  z-index: -99;
+}
+
+.top-wrapper::before {
+  content: "";
+  background-color: rgba(0,0,0,.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -98;
+}
+
+.top-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.top-container h2 {
+  color: #fff;
+  font-family: "Meiryo", 'Comic Sans MS';
+  letter-spacing: 0.03em;
+}
+
+.top-container .h2-en {
+  margin-top: 5px;
+}
+
+.text-bright {
+  color: #fffc9b;
+}
+
+.top-search-form {
+  margin: 30px 0;
+  width: 100%;
+}
+
+.area-view-wrapper {
+  background-color: #72f1fd;
+  padding: 50px 80px;
+}
+
+.area-view-container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.area-view-container h3 {
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-family: "Meiryo";
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.all-area-panels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.area-panel{
+  background-image: image-url('default-image.png');
+  background-size: cover;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  height: 270px;
+  letter-spacing: 0.05em;
+  margin: 10px;
+  width: 250px;
+  padding: 10px;
+}
+
+/* signup */
+
+.sign-up-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 80px;
+}
+
+.sign-up-container {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.sign-up-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sign-up-form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.sign-up-form .required_field {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.required_field::after {
+  content: "※必須";
+  color: #f00;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.sign-up-form .input-field {
+  height: 40px;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.sign-up-form .add-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.sign-up-form .cancel-button {
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  color: #666;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 20px 40px;
+}

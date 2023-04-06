@@ -1,0 +1,30 @@
+<div class="sign-up-wrapper">
+  <div class="sign-up-container">
+    <h2>新規登録</h2>
+    <%= form_with model: @user, url: sign_up_path do |f| %>
+      <div class="sign-up-form">
+        <div>
+          <%= f.label :name ,"ユーザー名", class: "required_field" %>
+          <%= f.text_field :name, placeholder: "ユーザー名を入力", class: "input-field" %>
+        </div>
+        <div>
+          <%= f.label :email ,"メールアドレス", class: "required_field" %>
+          <%= f.email_field :email, placeholder: "email@example.com など", class: "input-field" %>
+        </div>
+        <div>
+          <%= f.label :password ,"パスワード", class: "required_field" %>
+          <%= f.password_field :password, placeholder: "6文字以上で入力", class: "input-field" %>
+        </div>
+        <div>
+          <%= f.label :password_confirmation ,"パスワード(確認入力)", class: "required_field" %>
+          <%= f.password_field :password_confirmation, placeholder: "パスワードを入力", class: "input-field" %>
+        </div>
+
+        <div>
+          <%= f.submit "アカウントを登録", class: "add-button" %>
+          <%= link_to "アカウントをお持ちの方はこちらからログイン", root_path, class: "cancel-button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

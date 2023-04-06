@@ -23,6 +23,8 @@ module ReservarApp
     config.active_storage.variant_processor = :vips
     # 時間表示を日本時間に設定
     config.time_zone = 'Tokyo'
+    # アプリケーションのデフォルトのロケールを日本語に設定する
+    config.i18n.default_locale = :ja
     # バリデーションエラー時に発生するレイアウト崩れを防止
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
