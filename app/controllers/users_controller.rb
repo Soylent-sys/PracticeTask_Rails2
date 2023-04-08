@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -6,28 +7,35 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in(@user)
       flash[:notice] = "登録が完了しました"
-      redirect_to root_url  # 仮リダイレクト
+      redirect_to users_account
     else
-      flash.now[:notice] = "登録内容に問題があります"
+      flash.now[:danger] = "入力内容に問題があります"
       render 'new'
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      flash[:notice] = "編集情報が更新されました"
-      redirect_to root_url  # 仮リダイレクト
+    @user = current_user
+    if current_user.password === user_params.current_password
+      if @user.update(user_params)
+        flash[:notice] = "情報が更新されました"
+        redirect_to users_account_path
+      else
+        flash[:danger] = "入力内容に問題があります"
+        render 'edit'
+      end
     else
+      flash[:danger] = "現在のパスワードが間違っています"
       render 'edit'
     end
   end

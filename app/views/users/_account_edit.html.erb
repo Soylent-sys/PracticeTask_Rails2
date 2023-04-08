@@ -1,0 +1,23 @@
+<div class="user-show-title-and-edit">
+  <h3>アカウント</h3>
+</div>
+<%= form_with model: @user, url: users_edit_path do |f| %>
+  <div class="account-edit-form">
+    <div class="account_show">
+      <%= f.label :email ,"メールアドレス" %>
+      <%= f.email_field :email, placeholder: "email@example.com など", class: "input-field" %>
+    </div>
+    <div class="account_show">
+      <%= f.label :password ,"変更後パスワード" %>
+      <%= f.password_field :password, placeholder: "変更する場合のみ入力", class: "input-field" %>
+    </div>
+    <div class="account_show">
+      <%= f.label :password_confirmation ,"確認用パスワード" %>
+      <%= f.password_field :password_confirmation, placeholder: "変更する場合のみ入力", class: "input-field" %>
+    </div>
+    <div class="account_show">
+      <%= f.label :password ,"現在のパスワード" %>
+      <%= f.password_field :password, placeholder: "現在のパスワードを入力", class: "input-field" %>
+    </div>
+  </div>
+<% end %>

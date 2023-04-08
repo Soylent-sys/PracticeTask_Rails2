@@ -1,0 +1,12 @@
+<div class="user-show-title-and-edit">
+  <h3>アカウント</h3>
+  <%= link_to "編集", users_edit_path, class: "user-edit" %>
+</div>
+<div class="account_show">
+  <label>メールアドレス</label>
+  <p><%= @user.email %></p>
+</div>
+<div class="account_show">
+  <label>パスワード</label>
+  <p><%= "********" %></p>
+</div>

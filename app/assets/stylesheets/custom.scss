@@ -33,6 +33,7 @@ input::placeholder {
   color: #ccc
 }
 
+
 /* layout */
 
 .header-container {
@@ -42,6 +43,7 @@ input::placeholder {
   align-items: center;
   width: 100%;
   padding: 10px 20px;
+  position: relative;
 }
 
 .header-container h1 {
@@ -51,6 +53,28 @@ input::placeholder {
 .nav-list ul {
   display: flex;
   font-size: 20px;
+  margin-right: 20px;
+}
+
+.logged-in-nav-list {
+  color: #888;
+  display: flex;
+  align-items: center;
+  font-size: 20px
+}
+
+.logged-in-nav-list img {
+  margin-right: 10px;
+}
+
+.logged-in-nav-list::after {
+  content: "▼";
+  color: #444;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.drop-button {
   margin-right: 20px;
 }
 
@@ -65,6 +89,38 @@ input::placeholder {
   border-radius: 5px;
   color: #fff;
   padding: 10px 20px;
+}
+
+#check {
+  display: none;
+}
+
+#check:checked ~ .gloval-nav {
+  display: block;
+}
+
+.gloval-nav {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px -1px 5px #222;
+  color: #777;
+  display: none;
+  font-size: 20px;
+  position: absolute;
+  top: 80px;
+  right: 65px;
+}
+
+.gloval-nav li {
+  padding: 12px 20px;
+}
+
+.add-room {
+  border-bottom: 1px solid #777;
+}
+
+.logout {
+  border-top: 1px solid #777;
 }
 
 .footer-container {
@@ -83,9 +139,7 @@ input::placeholder {
 /* shared */
 
 .flash-container {
-  background-color: #fdf745;
   border-radius: 5px;
-  color: #888;
   font-weight: bold;
   padding: 15px 25px;
   position: fixed;
@@ -93,6 +147,16 @@ input::placeholder {
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
+}
+
+.flash-notice {
+  background-color: #fdf745;
+  color: #888;
+}
+
+.flash-danger {
+  background-color: #ff7162;
+  color: #555;
 }
 
 
@@ -182,50 +246,56 @@ input::placeholder {
   padding: 10px;
 }
 
-/* signup */
 
-.sign-up-wrapper {
+/* signup signin */
+
+.sign-wrapper {
   background-color: #72f1fd;
   padding: 30px 80px;
 }
 
-.sign-up-container {
+.sign-container {
   width: fit-content;
   margin: 0 auto;
 }
 
-.sign-up-container h2 {
+.sign-container h2 {
   color: #fff;
   margin-bottom: 20px;
 }
 
-.sign-up-form {
+.sign-form {
   background-color: #fff;
   border-radius: 10px;
   padding: 40px;
 }
 
-.sign-up-form .required_field {
+.sign-form .input_label {
   display: block;
   margin-bottom: 5px;
 }
 
-.required_field::after {
+.sign-form .required_input_label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.required_input_label::after {
   content: "※必須";
   color: #f00;
   font-size: 12px;
   margin-left: 5px;
 }
 
-.sign-up-form .input-field {
-  height: 40px;
-  width: 100%;
+.sign-form .input-field {
   border: 1px solid #aaa;
   border-radius: 5px;
+  height: 40px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
-.sign-up-form .add-button {
+.sign-form .add-button {
   background-color: #467eff;
   border-radius: 10px;
   color: #fff;
@@ -237,7 +307,7 @@ input::placeholder {
   padding: 20px 40px;
 }
 
-.sign-up-form .cancel-button {
+.sign-form .cancel-button {
   border: 1px solid #aaa;
   border-radius: 10px;
   color: #666;
@@ -245,4 +315,95 @@ input::placeholder {
   text-align: center;
   width: 100%;
   padding: 20px 40px;
+}
+
+
+/* show */
+
+.user-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 80px 60px 80px;
+}
+
+.user-container h2 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.user-show-title-and-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.menu-and-account-profile {
+  display: flex;
+}
+
+.show-menu {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 20%;
+  height: fit-content;
+}
+
+.show-menu ul {
+  margin: 10px 0;
+}
+
+.show-menu-link {
+  display: block;
+  font-size: 25px;
+  padding: 15px 20px;
+}
+
+.show-account-profile {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  height: fit-content;
+  margin-left: 30px;
+  padding: 25px 25px;
+  width: 80%;
+}
+
+.user-show-title-and-edit + .account_show {
+  margin-bottom: 25px;
+}
+
+.user-show-title-and-edit .user-edit {
+  margin-right: 10px;
+}
+
+.user-edit {
+  background-color: #467eff;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.account_show {
+  display: flex;
+}
+
+.account_show label {
+  width: 30%;
+}
+
+.account_show p {
+  width: 70%;
+}
+
+.account-edit-form .account_show {
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.account-edit-form .input-field {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-left: 20px;
+  height: 40px;
+  width: 100%;
 }

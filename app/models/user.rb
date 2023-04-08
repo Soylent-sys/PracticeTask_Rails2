@@ -9,7 +9,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   has_secure_password
 
-  has_one_attached :avater_icon
+  has_one_attached :avatar_icon do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
 
   private
     # メールアドレスを小文字化する

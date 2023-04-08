@@ -1,0 +1,20 @@
+<div class="user-wrapper">
+  <div class="user-container">
+    <h2>設定</h2>
+    <div class="menu-and-account-profile">
+      <div class="show-menu">
+        <ul>
+          <li>
+            <%= link_to "アカウント" ,users_account_path, class: "show-menu-link" %>
+          </li>
+          <li>
+            <%= link_to "プロフィール" ,'#', class: "show-menu-link" %>
+          </li>
+        </ul>
+      </div>
+      <div class="show-account-profile">
+        <%= render yield(:url) %>
+      </div>
+    </div>
+  </div>
+</div>
