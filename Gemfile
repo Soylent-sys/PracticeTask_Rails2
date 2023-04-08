@@ -33,6 +33,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # エラー文などを日本語化するため追加
 gem 'rails-i18n'
 
+# デバッグ機能の追加
+gem 'pry-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

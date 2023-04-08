@@ -407,3 +407,27 @@ input::placeholder {
   height: 40px;
   width: 100%;
 }
+
+.account-edit-form .add-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 20px;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+.account-edit-form .cancel-button {
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  color: #666;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+.account-edit-form .cancel-submit-buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}

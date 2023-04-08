@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       flash[:notice] = "登録が完了しました"
-      redirect_to users_account
+      redirect_to users_account_path
     else
       flash.now[:danger] = "入力内容に問題があります"
       render 'new'
@@ -26,7 +26,14 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if current_user.password === user_params.current_password
+    if @user.authenticate(params[:user][:current_password])
+      params[:user].delete(:current_password)
+
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+      end
+
       if @user.update(user_params)
         flash[:notice] = "情報が更新されました"
         redirect_to users_account_path
@@ -35,7 +42,7 @@ class UsersController < ApplicationController
         render 'edit'
       end
     else
-      flash[:danger] = "現在のパスワードが間違っています"
+      flash[:danger] = "パスワードが間違っています"
       render 'edit'
     end
   end

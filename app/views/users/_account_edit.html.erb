@@ -16,8 +16,13 @@
       <%= f.password_field :password_confirmation, placeholder: "変更する場合のみ入力", class: "input-field" %>
     </div>
     <div class="account_show">
-      <%= f.label :password ,"現在のパスワード" %>
-      <%= f.password_field :password, placeholder: "現在のパスワードを入力", class: "input-field" %>
+      <%= f.label :current_password ,"現在のパスワード" %>
+      <%= f.password_field :current_password, placeholder: "現在のパスワードを入力", class: "input-field" %>
+    </div>
+
+    <div class="cancel-submit-buttons">
+      <%= link_to "キャンセル", users_account_path, class: "cancel-button" %>
+      <%= f.submit "保存", class: "add-button" %>
     </div>
   </div>
 <% end %>
