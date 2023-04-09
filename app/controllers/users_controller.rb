@@ -19,12 +19,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    # リクエストURLに応じて呼び出す詳細ページのURLを分岐させる
     @url = request.fullpath + '_show'
   end
 
   def edit
     @user = current_user
     sent_url = request.fullpath
+    # リクエストURLに応じて呼び出す部分パーシャルのURLを分岐させる
     if sent_url === '/users/edit'
       @url = 'users/account_edit'
     else sent_url === '/users/profile/edit'
@@ -34,6 +36,7 @@ class UsersController < ApplicationController
 
   def update
     sent_url = request.fullpath
+    # リクエストURLに応じてアカウント情報かプロフィール情報の更新処理に分岐させる
     if sent_url === '/users/edit'
       @user = current_user
       if @user.authenticate(params[:user][:current_password])
