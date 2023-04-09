@@ -1,7 +1,7 @@
 <div class="sign-wrapper">
   <div class="sign-container">
     <h2>ログイン</h2>
-    <%= form_with model: @session, url: log_in_path do |f| %>
+    <%= form_with scope: :session, model: @user, url: log_in_path do |f| %>
       <div class="sign-form">
         <div>
           <%= f.label :email ,"メールアドレス", class: "input_label" %>

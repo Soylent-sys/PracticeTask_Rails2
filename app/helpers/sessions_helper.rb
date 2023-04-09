@@ -6,7 +6,7 @@ module SessionsHelper
   end
 
   # sessionが構築されている（ログインしている）場合は、
-  # そのユーザーを（DBで検索して）インスタンス変数に格納する
+  # そのユーザーを（DBで検索して）格納したインスタンス変数を返す
   # インスタンスに値が存在する場合はその値のままにする
   # 無駄なDB検索をさせないための制御
   def current_user
@@ -25,7 +25,7 @@ module SessionsHelper
   # ログイン状態じゃなければ、ログインページにリダイレクトする
   def require_login
     if !logged_in?
-      flash[:danger] = "ログイン後にアクセスできます"
+      flash[:danger] = "ログイン後にアクセスしてください"
       redirect_to log_in_path
     end
   end

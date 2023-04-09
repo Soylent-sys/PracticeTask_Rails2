@@ -1,0 +1,22 @@
+<div class="profile-edit-page">
+  <div class="user-show-title-and-edit">
+    <h3>プロフィール</h3>
+    <%= link_to "編集", users_profile_edit_path, class: "user-edit" %>
+  </div>
+  <div class="profile-show profile-image">
+    <label>アイコン画像</label>
+    <% if current_user.avatar_icon.attached? %>
+      <%= image_tag current_user.avatar_icon, size: '80x80', alt: "アイコン画像" %>
+    <% else %>
+      <%= image_tag 'default-avatar.png', size: '80x80', alt: "アイコン画像" %>
+    <% end %>
+  </div>
+  <div class="profile-show">
+    <label>名前</label>
+    <p><%= current_user.name %></p>
+  </div>
+  <div class="profile-show">
+    <label>自己紹介</label>
+    <p><%= current_user.introduction %></p>
+  </div>
+</div>

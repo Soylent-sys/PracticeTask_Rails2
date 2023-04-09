@@ -1,0 +1,40 @@
+<div class="profile-edit-page">
+  <div class="user-show-title-and-edit">
+    <h3>プロフィール</h3>
+  </div>
+  <%= form_with model: @user, url: users_profile_edit_path do |f| %>
+    <div class="account-edit-form">
+      <div class="profile-show profile-image">
+        <div class="profile-image-label">
+          <label>画像アイコン</label>
+        </div>
+        <div class="profile-image-form">
+          <div>
+            <% if current_user.avatar_icon.attached? %>
+              <%= image_tag current_user.avatar_icon, size: '80x80', alt: "アイコン画像" %>
+            <% else %>
+              <%= image_tag 'default-avatar.png', size: '80x80', alt: "アイコン画像" %>
+            <% end %>
+          </div>
+          <div>
+            <%= f.label :avatar_icon ,"画像アップロード", class: "image-upload-button" %>
+            <%= f.file_field :avatar_icon %>
+          </div>
+        </div>
+      </div>
+      <div class="profile-show">
+        <%= f.label :name ,"名前" %>
+        <%= f.text_field :name, placeholder: "名前を入力", class: "input-field" %>
+      </div>
+      <div class="profile-show">
+        <%= f.label :introduction ,"自己紹介" %>
+        <%= f.text_area :introduction, placeholder: "文章を入力", class: "input-area" %>
+      </div>
+
+      <div class="cancel-submit-buttons">
+        <%= link_to "キャンセル", users_profile_path, class: "cancel-button" %>
+        <%= f.submit "保存", class: "add-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>

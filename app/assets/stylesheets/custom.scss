@@ -33,6 +33,9 @@ input::placeholder {
   color: #ccc
 }
 
+textarea {
+  padding: 10px;
+}
 
 /* layout */
 
@@ -318,7 +321,7 @@ input::placeholder {
 }
 
 
-/* show */
+/* show edit */
 
 .user-wrapper {
   background-color: #72f1fd;
@@ -368,8 +371,12 @@ input::placeholder {
   width: 80%;
 }
 
-.user-show-title-and-edit + .account_show {
+.user-show-title-and-edit + .account-show {
   margin-bottom: 25px;
+}
+
+.profile-show {
+  margin-top: 40px;
 }
 
 .user-show-title-and-edit .user-edit {
@@ -383,19 +390,20 @@ input::placeholder {
   padding: 5px 10px;
 }
 
-.account_show {
+.account-show, .profile-show {
   display: flex;
+  align-items: center;
 }
 
-.account_show label {
+.account-show label, .profile-show label {
   width: 30%;
 }
 
-.account_show p {
+.account-show p, .profile-show p {
   width: 70%;
 }
 
-.account-edit-form .account_show {
+.account-edit-form .account-show, .account-edit-form .profile_show {
   align-items: center;
   margin-bottom: 30px;
 }
@@ -430,4 +438,40 @@ input::placeholder {
   display: flex;
   justify-content: end;
   align-items: center;
+}
+
+.profile-image-form {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image-label {
+  width: 25%;
+}
+
+.profile-image input {
+  display: none;
+}
+
+.image-upload-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 30px;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.profile-show .input-area {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-left: 20px;
+  height: 200px;
+  width: 100%;
+}
+
+.profile-edit-page .cancel-submit-buttons {
+  margin-top: 30px;
 }
