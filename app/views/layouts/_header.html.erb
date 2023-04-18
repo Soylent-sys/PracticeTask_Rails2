@@ -9,22 +9,28 @@
       <label class="drop-button" for="check">
         <div class="logged-in-nav-list">
           <% if current_user.avatar_icon.attached? %>
-            <%= image_tag current_user.avatar_icon, size: '50x50', alt: "アイコン画像" %>
+            <%= image_tag current_user.avatar_icon, alt: "アイコン画像", class: "header-avatar-icon" %>
           <% else %>
-            <%= image_tag 'default-avatar.png', size: '50x50', alt: "アイコン画像" %>
+            <%= image_tag 'default-avatar.png', alt: "アイコン画像", class: "header-avatar-icon" %>
           <% end %>
           <%= current_user.name %>
         </div>
       </label>
       <nav class="gloval-nav">
         <ul>
-          <li class="add-room">施設の新規登録</li>
-          <li>予約済み一覧</li>
-          <li>登録済み一覧</li>
+          <%= link_to new_room_path do %>
+            <li class="add-room">施設の新規登録</li>
+          <% end %>
+          <%= link_to reservations_path do %>
+            <li>予約済み一覧</li>
+          <% end %>
+          <%= link_to rooms_own_path do %>
+            <li>登録済み一覧</li>
+          <% end %>
           <%= link_to users_account_path do %>
             <li>アカウント設定</li>
           <% end %>
-          <%= link_to log_out_path, method: :delete, class: "logout_button" do %>
+          <%= link_to log_out_path, method: :delete, class: "logout-button" do %>
             <li class="logout">ログアウト</li>
           <% end %>
         </ul>
@@ -33,10 +39,10 @@
       <div class="nav-list">
         <ul>
           <li>
-            <%= link_to "ログイン", log_in_path, class: "login_button" %>
+            <%= link_to "ログイン", log_in_path, class: "login-button" %>
           </li>
           <li>
-            <%= link_to "新規登録", sign_up_path, class: "sign_up_button" %>
+            <%= link_to "新規登録", sign_up_path, class: "sign-up-button" %>
           </li>
         </ul>
       </div>

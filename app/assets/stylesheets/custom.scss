@@ -1,5 +1,10 @@
 /* default */
 
+body {
+  position: relative;
+  z-index: -99;
+}
+
 h1 {
   font-size: 60px;
 }
@@ -30,12 +35,25 @@ input {
 }
 
 input::placeholder {
-  color: #ccc
+  color: #ccc;
 }
 
 textarea {
   padding: 10px;
 }
+
+textarea::placeholder {
+  color: #ccc
+}
+
+// フォームの数字入力フィールドのスピンボタンを削除する
+.no-spin::-webkit-inner-spin-button,
+.no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance:textfield;
+}
+
 
 /* layout */
 
@@ -81,13 +99,13 @@ textarea {
   margin-right: 20px;
 }
 
-.login_button {
+.login-button {
   color: #6be5f0;
   font-weight: bold;
   margin-right: 30px;
 }
 
-.sign_up_button {
+.sign-up-button {
   background-color: #6be5f0;
   border-radius: 5px;
   color: #fff;
@@ -138,6 +156,11 @@ textarea {
   color: #6be5f0;
 }
 
+.header-avatar-icon {
+  height: 50px;
+  width: 50px;
+}
+
 
 /* shared */
 
@@ -169,10 +192,10 @@ textarea {
   background-image: image-url('top-image.jpg');
   background-position: center;
   background-size: cover;
-  height: 70vh;
+  height: fit-content;
   padding: 50px 80px;
   position: relative;
-  z-index: -99;
+  z-index: -98;
 }
 
 .top-wrapper::before {
@@ -183,12 +206,13 @@ textarea {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -98;
+  z-index: -97;
 }
 
 .top-container {
   margin: 0 auto;
   width: 100%;
+  position: relative;
 }
 
 .top-container h2 {
@@ -206,7 +230,31 @@ textarea {
 }
 
 .top-search-form {
-  margin: 30px 0;
+  background-color: rgba(255,255,255,.5);
+  margin: 0 auto;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  padding: 30px;
+  max-width: 700px;
+}
+
+.top-search-form .input-field {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 50px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.top-search-form .search-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
   width: 100%;
 }
 
@@ -230,27 +278,72 @@ textarea {
   text-align: center;
 }
 
-.all-area-panels {
+.all-area-panels ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 30px;
 }
 
-.area-panel{
-  background-image: image-url('default-image.png');
+.all-area-panels li {
+  width: calc(100% / 3 - 30px);
+}
+
+.area-panel-tokyo {
+  background-image: image-url('tokyo-image.jpg');
   background-size: cover;
   border-radius: 10px;
   color: #fff;
+  display: block;
   font-weight: bold;
   height: 270px;
   letter-spacing: 0.05em;
-  margin: 10px;
-  width: 250px;
   padding: 10px;
 }
 
+.area-panel-osaka {
+  background-image: image-url('osaka-image.jpg');
+  background-size: cover;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  height: 270px;
+  letter-spacing: 0.05em;
+  padding: 10px;
+}
 
-/* signup signin */
+.area-panel-kyoto {
+  background-image: image-url('kyoto-image.jpg');
+  background-size: cover;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  height: 270px;
+  letter-spacing: 0.05em;
+  padding: 10px;
+}
+
+.area-panel-sapporo {
+  background-image: image-url('sapporo-image.jpg');
+  background-size: cover;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  height: 270px;
+  letter-spacing: 0.05em;
+  padding: 10px;
+}
+
+.area-search-label {
+  color: #fff;
+  display: block;
+  font-size: 24px;
+}
+
+
+/* user signup signin */
 
 .sign-wrapper {
   background-color: #72f1fd;
@@ -305,23 +398,24 @@ textarea {
   display: block;
   font-size: 20px;
   margin-bottom: 20px;
+  padding: 20px 40px;
   text-align: center;
   width: 100%;
-  padding: 20px 40px;
 }
 
 .sign-form .cancel-button {
+  background-color: #fff;
   border: 1px solid #aaa;
   border-radius: 10px;
   color: #666;
   display: block;
+  padding: 20px 40px;
   text-align: center;
   width: 100%;
-  padding: 20px 40px;
 }
 
 
-/* show edit */
+/* user show edit */
 
 .user-wrapper {
   background-color: #72f1fd;
@@ -427,11 +521,12 @@ textarea {
 }
 
 .account-edit-form .cancel-button {
+  background-color: #fff;
   border: 1px solid #aaa;
   border-radius: 10px;
   color: #666;
-  text-align: center;
   padding: 15px 20px;
+  text-align: center;
 }
 
 .account-edit-form .cancel-submit-buttons {
@@ -451,6 +546,11 @@ textarea {
 
 .profile-image input {
   display: none;
+}
+
+.profile-icon-image {
+  height: 80px;
+  width: 80px;
 }
 
 .image-upload-button {
@@ -474,4 +574,468 @@ textarea {
 
 .profile-edit-page .cancel-submit-buttons {
   margin-top: 30px;
+}
+
+
+/* room searchform */
+
+.room-search-form-container {
+  background-color: #d0fbff;
+  padding: 30px 0;
+}
+
+.room-search-form {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.search-area-and-keyword .input-field {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-right: 20px;
+  height: 45px;
+  width: 250px;
+}
+
+.search-area-and-keyword .search-button {
+  background-color: #4be5f3;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: center;
+  padding: 10px 30px;
+}
+
+
+/* room index */
+
+.room-index-wrapper {
+  background-color: #72f1fd;
+  padding: 40px;
+}
+
+.rooms-count {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.rooms-count span {
+  font-weight: bold;
+}
+
+.room-thumbnails-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.room-thumbnails-container li {
+  background-color: #fff;
+  border: 1px solid #72f1fd;
+  border-radius: 20px;
+  color: #777;
+  width: calc(100% / 3 - 30px);
+}
+
+.room-image {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+}
+
+.room-info {
+  padding: 30px 20px 10px 20px;
+}
+
+.room-name {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.room-address {
+  margin-bottom: 20px;
+}
+
+.room-details {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 18px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.room-price {
+  color: #ff756e;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.room-show-link {
+  margin-bottom: 30px;
+}
+
+.room-show-link-button {
+  display: block;
+  background-color: #467eff;
+  border-radius: 5px;
+  color: #fff;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  width: 80%;
+}
+
+
+/* room new */
+
+.room-new-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 80px 60px 80px;
+}
+
+.room-new-container {
+  height: fit-content;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.room-new-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.room-form {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  height: fit-content;
+  padding: 25px 25px;
+}
+
+.room-form-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.room-form-input label {
+  width: 30%;
+}
+
+.room-form .input-field {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 40px;
+  width: 70%;
+}
+
+.room-form .input-area {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 200px;
+  width: 70%;
+}
+
+.room-form-upload label {
+  display: inline-block;
+  width: 30%;
+}
+
+.room-form-upload .image-upload-button {
+  margin-left: 0;
+}
+
+.room-form .cancel-submit-buttons {
+  margin-top: 50px;
+}
+
+.room-form .add-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.room-form .cancel-button {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  color: #666;
+  display: block;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.room-form-upload input {
+  display: none;
+}
+
+
+/* room own */
+
+.room-own-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 20px 60px 20px;
+}
+
+.room-own-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.room-own-table {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 20px 10px 20px 10px;
+}
+
+.room-own-table th {
+  border-bottom: 2px solid #aaa;
+  color: #777;
+  padding: 5px 5px 5px 0;
+  vertical-align: bottom;
+}
+
+.room-own-table td {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 15px 15px 0;
+  vertical-align: middle;
+}
+
+.room-own-image {
+  width: 120px;
+}
+
+.show-page-link {
+  color: #467eff;
+}
+
+/* room show */
+
+.room-show-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 20px 60px 20px;
+}
+
+.room-show-back-link {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.room-show-image-and-info-and-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.room-show-image-and-info-and-form .room-show-image {
+  object-fit: contain;
+  width: 40%;
+}
+
+.room-info-and-reservation-form {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #777;
+  padding: 50px 20px;
+}
+
+.room-info-name-and-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.check-in-out-date-people-input {
+  background-color: #dcffe7;
+  border-radius: 5px;
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+  padding: 20px 20px;
+}
+
+.reservation-form-input label {
+  font-size: 13px;
+}
+
+.reservation-form-input .field-date,
+.reservation-form-input .field-number {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  height: 45px;
+  margin-top: 5px;
+}
+
+.reservation-form-input span {
+  position: relative;
+}
+
+.reservation-form-input span::before {
+  content: "人";
+  color: #888;
+  position: absolute;
+  top: 3px;
+  left: -25px;
+}
+
+.reservation-or-login .show-reservation-button,
+.reservation-or-login .show-login-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+
+/* reservation confirm */
+
+.reservation-new-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 80px 60px 80px;
+}
+
+.reservation-new-container {
+  height: fit-content;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.reservation-new-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.reservation-confirm-info {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  height: fit-content;
+  padding: 25px 25px;
+}
+
+.reservation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.reservation-info .p-label {
+  color: #777;
+  font-weight: bold;
+}
+
+.reservation-charge-text {
+  font-weight: bold;
+}
+
+.reservation-confirm-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.reservation-submit-button {
+  background-color: #467eff;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  padding: 15px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.reservation-submit-cancel-buttons .cancel-button {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  color: #666;
+  display: block;
+  margin-top: 20px;
+  padding: 15px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+
+/* caution */
+
+.caution-page-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 80px 60px 80px;
+}
+
+.caution-page-container {
+  background-color: #fff;
+  border-radius: 10px;
+  height: fit-content;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 40px;
+  text-align: center;
+}
+
+.caution-page-container p + p {
+  margin-top: 10px;
+}
+
+.caution-page-container span {
+  font-weight: bold;
+}
+
+
+/* reservation confirm */
+
+.reservation-index-wrapper {
+  background-color: #72f1fd;
+  padding: 30px 20px 60px 20px;
+}
+
+.reservation-index-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.reservation-index-table {
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 20px 10px 20px 10px;
+}
+
+.reservation-index-table table {
+  width: 100%;
+}
+
+.reservation-index-table th {
+  border-bottom: 2px solid #aaa;
+  color: #777;
+  padding: 5px 5px 5px 0;
+  vertical-align: bottom;
+}
+
+.reservation-index-table td {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 15px 15px 0;
+  vertical-align: middle;
+}
+
+.room-index-image {
+  width: 120px;
 }

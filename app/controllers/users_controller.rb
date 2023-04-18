@@ -53,13 +53,15 @@ class UsersController < ApplicationController
           flash[:notice] = "アカウント情報が更新されました"
           redirect_to users_account_path
         else
+          @user.attributes = user_params
           @url = 'users/account_edit'
-          flash[:danger] = "入力内容に問題があります"
+          flash.now[:danger] = "入力内容に問題があります"
           render 'edit'
         end
       else
+        @user.attributes = user_params
         @url = 'users/account_edit'
-        flash[:danger] = "パスワードが間違っています"
+        flash.now[:danger] = "パスワードが間違っています"
         render 'edit'
       end
     elsif sent_url === '/users/profile/edit'
@@ -68,14 +70,16 @@ class UsersController < ApplicationController
         flash[:notice] = "プロフィール情報が更新されました"
         redirect_to users_profile_path
       else
+        @user.attributes = user_params
         @url = 'users/profile_edit'
-        flash[:danger] = "入力内容に問題があります"
+        flash.now[:danger] = "入力内容に問題があります"
         render 'edit'
       end
     end
   end
 
   private
+
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduction, :avatar_icon)
     end

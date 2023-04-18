@@ -1,0 +1,38 @@
+<div class="room-own-wrapper">
+  <div class="room-own-container">
+    <h2>登録済み一覧</h2>
+    <div class="room-own-table">
+      <table>
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @rooms.each do |room| %>
+            <tr>
+              <td>
+                <%= link_to room_path(room.id) do %>
+                  <% if room.room_image.attached? %>
+                    <%= image_tag room.room_image, alt: "施設画像", class: "room-own-image" %>
+                  <% else %>
+                    <%= image_tag 'default-image.png', alt: "施設画像", class: "room-own-image" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= link_to room.name, room_path(room.id), class: "show-page-link" %></td>
+              <td><%= room.details %></td>
+              <td>¥<%= room.price %>~</td>
+              <td><%= room.created_at.to_s(:date_only_custom) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
