@@ -27,7 +27,7 @@
               </td>
               <td><%= link_to room.name, room_path(room.id), class: "show-page-link" %></td>
               <td><%= room.details %></td>
-              <td>¥<%= room.price %>~</td>
+              <td><%= "¥#{room.price} ~" %></td>
               <td><%= room.created_at.to_s(:date_only_custom) %></td>
             </tr>
           <% end %>
