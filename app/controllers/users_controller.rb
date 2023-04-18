@@ -40,10 +40,10 @@ class UsersController < ApplicationController
     if sent_url === '/users/edit'
       @user = current_user
       if @user.authenticate(params[:user][:current_password])
-        # パスワード認証後は current_password は必要無いのでparamsによる送信対象から削除
+        # パスワード認証後は current_password は必要無いのでparamsから削除
         params[:user].delete(:current_password)
 
-        # パスワードの変更フォームが空欄の場合はパスワード関連のカラムをparamsによる送信対象から外す
+        # パスワードの変更フォームが空欄の場合はパスワード関連のカラムをparamsから削除しupdate対象から外す
         if user_params[:password].blank?
           user_params.delete(:password)
           user_params.delete(:password_confirmation) if user_params[:password_confirmation].blank?

@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
 
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:new, :create, :own]
 
   def index
     @rooms = Room.where("address LIKE ? AND details LIKE ?", "%#{params[:area]}%", "%#{params[:keyword]}%")
