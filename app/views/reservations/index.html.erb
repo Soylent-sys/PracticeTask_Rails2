@@ -1,0 +1,42 @@
+<div class="reservation-index-wrapper">
+  <div class="reservation-index-container">
+    <h2>予約済み一覧</h2>
+    <div class="reservation-index-table">
+      <table>
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>合計料金</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
+            <th>予約確定日時</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @reservations.each do |reservation| %>
+            <tr>
+              <td>
+                <%= link_to room_path(reservation.room.id) do %>
+                  <% if reservation.room.room_image.attached? %>
+                    <%= image_tag reservation.room.room_image, alt: "施設画像", class: "room-index-image" %>
+                  <% else %>
+                    <%= image_tag 'default-image.png', alt: "施設画像", class: "room-index-image" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= link_to reservation.room.name, room_path(reservation.room.id), class: "show-page-link" %></td>
+              <td><%= reservation.room.details %></td>
+              <td><%= "¥#{reservation.charge}" %></td>
+              <td><%= reservation.check_in_date.to_s(:date_custom) %></td>
+              <td><%= reservation.check_out_date.to_s(:date_custom) %></td>
+              <td><%= reservation.created_at.to_s(:datetime_custom) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

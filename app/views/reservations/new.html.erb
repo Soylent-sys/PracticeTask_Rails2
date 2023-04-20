@@ -1,0 +1,52 @@
+<div class="reservation-new-wrapper">
+  <div class="reservation-new-container">
+    <h2>予約内容の確認</h2>
+    <%= form_with model: @reservation, url: reservations_path do |f| %>
+      <%= f.hidden_field :check_in_date, value: @reservation.check_in_date %>
+      <%= f.hidden_field :check_out_date, value: @reservation.check_out_date %>
+      <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+      <%= f.hidden_field :charge, value: @reservation.charge %>
+      <%= f.hidden_field :room_id, value: @reservation.room_id %>
+      <%= f.hidden_field :user_id, value: @reservation.user_id %>
+      <div class="reservation-confirm-info">
+        <div class="reservation-info">
+          <p class="p-label">チェックイン</p>
+          <p>
+            <%= @reservation.check_in_date.to_s(:date_custom) %>
+          </p>
+        </div>
+        <div class="reservation-info">
+          <p class="p-label">チェックアウト</p>
+          <p>
+            <%= @reservation.check_out_date.to_s(:date_custom) %>
+          </p>
+        </div>
+        <div class="reservation-info">
+          <p class="p-label">日数</p>
+          <p>
+            <%= "#{(@reservation.check_out_date - @reservation.check_in_date).to_i}日" %>
+          </p>
+        </div>
+        <div class="reservation-info">
+          <p class="p-label">人数</p>
+          <p>
+            <%= "#{@reservation.number_of_people}人" %>
+          </p>
+        </div>
+        <div class="reservation-info">
+          <p class="p-label">お支払い金額</p>
+          <p class="reservation-charge-text">
+            <%= "¥#{@reservation.charge}" %>
+          </p>
+        </div>
+
+        <p class="reservation-confirm-text">上記の内容で正しければ「予約を確定」ボタンを押してください。</p>
+
+        <div class="reservation-submit-cancel-buttons">
+          <%= f.submit "予約を確定", class: "reservation-submit-button" %>
+          <%= link_to "キャンセル", room_path(@reservation.room_id), class: "cancel-button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
