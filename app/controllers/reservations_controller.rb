@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
       @room = Room.find(reservation_params[:room_id])
       flash[:danger] = "入力内容に問題があります"
       # 登録失敗時のリロード問題の解決
-      redirect_to room_path(@reservation.room_id)
+      redirect_to room_url(@reservation.room_id)
     end
   end
 
@@ -29,8 +29,8 @@ class ReservationsController < ApplicationController
       redirect_to reservations_url
     else
       @room = Room.find(reservation_params[:room_id])
-      flash.now[:danger] = "入力内容に問題があります"
-      redirect_to room_path(@reservation.room_id)
+      flash[:danger] = "入力内容に問題があります"
+      redirect_to room_url(@reservation.room_id)
     end
   end
 

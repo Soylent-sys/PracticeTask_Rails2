@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(session_params[:password])
       log_in(@user)
       flash[:notice] = "ログインしました"
-      redirect_to users_account_path
+      redirect_to users_account_url
     else
       @user = User.new(session_params)
       flash.now[:danger] = "メールアドレスかパスワードが間違っています"
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     flash[:notice] = "ログアウトしました"
-    redirect_to root_path
+    redirect_to root_url
   end
 
   private
