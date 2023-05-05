@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       flash[:notice] = "登録が完了しました"
-      redirect_to users_account_path
+      redirect_to users_account_url
     else
       flash.now[:danger] = "入力内容に問題があります"
       render 'new'
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
         if @user.update(user_params)
           flash[:notice] = "アカウント情報が更新されました"
-          redirect_to users_account_path
+          redirect_to users_account_url
         else
           @user.attributes = user_params
           @url = 'users/account_edit'
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
       @user = current_user
       if @user.update(user_params)
         flash[:notice] = "プロフィール情報が更新されました"
-        redirect_to users_profile_path
+        redirect_to users_profile_url
       else
         @user.attributes = user_params
         @url = 'users/profile_edit'

@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     if @room.save
       flash[:notice] = "施設が登録されました"
-      redirect_to room_path(@room.id)
+      redirect_to room_url(@room.id)
     else
       flash.now[:danger] = "入力内容に問題があります"
       render 'new'
